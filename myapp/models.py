@@ -18,4 +18,13 @@ class category(models.Model):
     created_by = models.ForeignKey(User, related_name='created_by', on_delete=models.CASCADE)   
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255, default='admin')
-    description = models.TextField()
+    description = models.TextField(blank=True)
+    image = models.ImageField(upload_to='images/')
+    price = models.DecimalField(max_digits=4, decimal_places=2)
+    slug = models.SlugField(max_length=255)
+    in_stock = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name_plural = 'Products'
+        ordering = ('-created',)
