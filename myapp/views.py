@@ -11,7 +11,7 @@ def product_all(request):
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
-    return render(request, 'products/detail.html', {'product':product})
+    return render(request, 'products/single.html', {'product':product})
 
 def category_list(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
