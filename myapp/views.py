@@ -5,7 +5,7 @@ from .models import *
 
 def product_all(request):
     products = Product.products.all()
-    return render(request, 'home.html', {'products':products})
+    return render(request, 'products/home.html', {'products':products})
 
 
 
